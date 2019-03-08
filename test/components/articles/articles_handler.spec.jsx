@@ -7,6 +7,8 @@ import '../../testHelper';
 describe('ArticlesHandler', () => {
   it('renders', () => {
     const props = {
+      assignments: [],
+      current_user: { admin: true },
       course: {
         school: 'My School',
         home_wiki: {
@@ -21,7 +23,7 @@ describe('ArticlesHandler', () => {
       <ArticlesHandler {...props} />
     );
 
-    expect(component.find('h3')).to.exist;
-    expect(component.text()).to.contain('Articles Edited');
+    expect(component.find('NavLink')).to.exist;
+    expect(component.debug()).to.contain('Articles Edited');
   });
 });
